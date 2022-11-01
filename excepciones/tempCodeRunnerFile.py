@@ -1,0 +1,1 @@
+ try catch, para el manejo de errores
