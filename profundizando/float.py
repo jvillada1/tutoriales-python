@@ -15,4 +15,6 @@ print(f'a: {a:.2f}')
 
 #Cualquier calculo que involucre, se promueve a float 
 a=4.0+5 
-print(a) 
+print(a)  
+
+#otra manera 
