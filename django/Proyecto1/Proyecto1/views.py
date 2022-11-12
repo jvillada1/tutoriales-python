@@ -3,7 +3,7 @@ import datetime
 from django.http import HttpResponse  
 from django.template import Template, Context # se importa para podr hacer el conexto y la template
 #crear primera vista 
-def saludo(request):  #tiene que recibir un request como parametro , es la primera vista 
+"""def saludo(request):  #tiene que recibir un request como parametro , es la primera vista 
     doc_externo=open("C:/Users/encal/OneDrive/Escritorio/Tutoriales python/curso/django/Proyecto1/Proyecto1/plantillas/plantilla1.html") #asi se abren las plantillas, como archivos 
     plt=Template(doc_externo.read()) 
     doc_externo.close()  #se abre y se cierra la comunicación
@@ -13,11 +13,16 @@ def saludo(request):  #tiene que recibir un request como parametro , es la prime
     
     documento=plt.render(ctx) #y para finalizar, se debe renderizar pasandole el contexto
     return HttpResponse(documento) #HACIENDOLO CON HTML 
+"""
 
 
+class Persona: 
+    def __init__(self,nombre,apellido,cargo): 
+        self.nombre=nombre 
+        self.apellido=apellido 
+        self.cargo=cargo
 
-
-
+persona1=Persona('Andres','Calle','estudiante')
 #cada funcion que se crea es una vista nueva 
 
 def despedida(request):  
@@ -70,3 +75,19 @@ def calcula_suma(request,num1,num2):
     documento="<html><body><h2>la suma es %s" %(suma) 
     return HttpResponse(documento)
 
+#hacerlo con platilla para recibir variables  
+def saludo_variable(request): 
+    nombre = "juan"  
+    apellido= "villada"  
+    cargo_objeto=persona1 
+    temas=["Plantillas","Modelos","Formularios"]
+    ahora=datetime.datetime.now()
+    doc_externo=open("C:/Users/encal/OneDrive/Escritorio/Tutoriales python/curso/django/Proyecto1/Proyecto1/plantillas/plantilla1.html") 
+    
+    plt =Template(doc_externo.read()) 
+    doc_externo.close() 
+    #ahora el contexto no va a estar vacio, debe recibir dicionarios  
+    #como se usa diccionarios, la nomenclatura va a ser clave-valor, tambien se le puede agregar una lista
+    ctx=Context({"nombre_persona":nombre,"apellido_persona":apellido,"ahora":ahora,"cargo":cargo_objeto,"temas":temas}) #identifica lo que esta guardado en la variable nombre con nombre_persona
+    documento=plt.render(ctx) 
+    return HttpResponse(documento)

@@ -1,6 +1,26 @@
 <html> 
     <h1> 
     Hola a mi primera primera pagina con plantilla
-    </h1> 
+    </h1>  
+    <p>El nombre del estudiante es:{{nombre_persona}}  {{apellido_persona}}</p><!–se deben poner las dos llaves con la clave del diccionario que hicimos anteriormente –>
+    <p> la fecha de ahora es: {{ahora.day}} / {{ahora.month}} / {{ahora.year}}</p> <!–para usar objetos, se debe poner la propiedad. el dato que quiero obtener –>
+    <p> el cargo del objeto es: {{cargo.cargo}}</p> 
+<p> nombre en mayuscula es : {{nombre_persona.upper}}  {{apellido_persona.upper}} </p><!–upper es un metodo pero como se llama de python , no se usa el () –>
+    <p> <strong>Temas del curso: </strong></p> 
+    <p> 
+        <ul> 
+        {% if temas %} <!–}Ponemos un if de esa manera, se hace por si la lista es vacia –>
+            {% for eltema in temas %} <!–}vamos a hacer un for para recorrer toda la lista y no copiarlo tantas veces –>
+                <li>{{eltema}}</li>  <!–}li y ul es para hacerlo con una lista de html –>
+
+
+
+            {%endfor%}  
+        {%else%} 
+        <p>no hay nada en la lista</p>
+        {%endif%}
+        </ul>
+    </p>
+
     </body>  
     </html> 

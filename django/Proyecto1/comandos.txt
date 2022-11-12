@@ -1,0 +1,10 @@
+ 
+Comandos para inicializar 
+django-admin startproject Proyecto1  
+
+ python manage.py migrate
+
+python manage.py runserver
+ 
+
+Primera pagina 

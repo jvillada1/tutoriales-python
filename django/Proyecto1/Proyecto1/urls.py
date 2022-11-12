@@ -15,19 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path 
-from Proyecto1.views import saludo
+#from Proyecto1.views import saludo
 from Proyecto1.views import despedida 
 from Proyecto1.views import fecha 
 from Proyecto1.views import calcula_edad 
 from Proyecto1.views import calcula_suma 
 from Proyecto1.views import despedidaHtml
+from Proyecto1.views import saludo_variable
 urlpatterns = [
     path('admin/', admin.site.urls), 
-    #se crea nuestra url para enlazarla con la primera vista
-    path('saludo/', saludo), 
     path('despedida/',despedida), 
     path('fecha/',fecha) ,
     path('calcula_edad/<int:agno>',calcula_edad),  #asi se indica que se va a pasar un parametro por la url 
     path('calcula_suma/<int:num1>/<int:num2>',calcula_suma) ,
-    path('despedidaHtml/',despedidaHtml)
+    path('despedidaHtml/',despedidaHtml), 
+    path('saludo_variable/',saludo_variable)
 ]
