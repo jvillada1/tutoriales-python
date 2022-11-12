@@ -91,3 +91,14 @@ def saludo_variable(request):
     ctx=Context({"nombre_persona":nombre,"apellido_persona":apellido,"ahora":ahora,"cargo":cargo_objeto,"temas":temas}) #identifica lo que esta guardado en la variable nombre con nombre_persona
     documento=plt.render(ctx) 
     return HttpResponse(documento)
+
+def prueba(request): 
+    persona=persona1 
+    comidas=['hamburguesa','sancocho','platano'] 
+    vacia=[] 
+    doc_externo=open("C:/Users/encal/OneDrive/Escritorio/Tutoriales python/curso/django/Proyecto1/Proyecto1/plantillas/plantilla3.html") 
+    plt=Template(doc_externo.read()) 
+    doc_externo.close() 
+    ctx=Context({"comidas":comidas,"persona":persona}) 
+    documento=plt.render(ctx) 
+    return HttpResponse(documento)
