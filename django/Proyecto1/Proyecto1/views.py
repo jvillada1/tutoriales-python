@@ -2,7 +2,9 @@
 import datetime
 from django.http import HttpResponse  
 from django.template import Template, Context # se importa para podr hacer el conexto y la template
-#crear primera vista 
+#crear primera vista  
+from django.template import loader #se importa loader para poder indicarle a django donde van a estar todas las plantillas 
+from django.shortcuts import render #es para hacer simplificaciones de codigo
 """def saludo(request):  #tiene que recibir un request como parametro , es la primera vista 
     doc_externo=open("C:/Users/encal/OneDrive/Escritorio/Tutoriales python/curso/django/Proyecto1/Proyecto1/plantillas/plantilla1.html") #asi se abren las plantillas, como archivos 
     plt=Template(doc_externo.read()) 
@@ -96,9 +98,37 @@ def prueba(request):
     persona=persona1 
     comidas=['hamburguesa','sancocho','platano'] 
     vacia=[] 
-    doc_externo=open("C:/Users/encal/OneDrive/Escritorio/Tutoriales python/curso/django/Proyecto1/Proyecto1/plantillas/plantilla3.html") 
-    plt=Template(doc_externo.read()) 
-    doc_externo.close() 
-    ctx=Context({"comidas":comidas,"persona":persona}) 
-    documento=plt.render(ctx) 
-    return HttpResponse(documento)
+    doc_externo=loader.get_template('plantilla3.html')
+    ctx={"comidas":comidas,"persona":persona} 
+    documento=doc_externo.render(ctx) 
+    return HttpResponse(documento) 
+
+#otra forma de cargar plantillas 
+def saludo_variable2(request): 
+    nombre = "juan"  
+    apellido= "villada"  
+    cargo_objeto=persona1 
+    temas=["Plantillas","Modelos","Formularios"]
+    ahora=datetime.datetime.now()
+    #doc_externo=open("C:/Users/encal/OneDrive/Escritorio/Tutoriales python/curso/django/Proyecto1/Proyecto1/plantillas/plantilla1.html") 
+    #plt =Template(doc_externo.read()) 
+    #doc_externo.close()  
+    
+    #asi se carga de manera mas facil las plantillas, con loader.get_trmplate()
+    doc_externo=loader.get_template('plantilla1.html') 
+    #con el loader solo puede recibir un diccionario, entonces se debe elminar el contexto
+    ctx={"nombre_persona":nombre,"apellido_persona":apellido,"ahora":ahora,"cargo":cargo_objeto,"temas":temas} 
+    
+    #ahora se debe renderizar el archivo documento_externo con el contexto
+    documento=doc_externo.render(ctx) 
+    return HttpResponse(documento) 
+
+#simplifacion con shortcuts 
+def simplificado(request): 
+    nombre = "juan"  
+    apellido= "villada"  
+    cargo_objeto=persona1 
+    temas=["Plantillas","Modelos","Formularios"]
+    ahora=datetime.datetime.now()  
+    #se le pasa al metodo render: request, nombre de la plantilla, diccionario o contexto 
+    return render(request,"plantilla1.html",{"nombre_persona":nombre,"apellido_persona":apellido,"ahora":ahora,"cargo":cargo_objeto,"temas":temas})

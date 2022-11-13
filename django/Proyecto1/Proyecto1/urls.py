@@ -22,7 +22,9 @@ from Proyecto1.views import calcula_edad
 from Proyecto1.views import calcula_suma 
 from Proyecto1.views import despedidaHtml
 from Proyecto1.views import saludo_variable 
-from Proyecto1.views import prueba
+from Proyecto1.views import prueba 
+from Proyecto1.views import saludo_variable2 
+from Proyecto1.views import simplificado
 urlpatterns = [
     path('admin/', admin.site.urls), 
     path('despedida/',despedida), 
@@ -31,5 +33,8 @@ urlpatterns = [
     path('calcula_suma/<int:num1>/<int:num2>',calcula_suma) ,
     path('despedidaHtml/',despedidaHtml), 
     path('saludo_variable/',saludo_variable), 
-    path('prueba/',prueba)
+    path('prueba/',prueba), 
+    path('saludo_variable2/',saludo_variable2), 
+    path('simplificado/',simplificado)
+    
 ]
