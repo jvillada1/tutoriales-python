@@ -24,7 +24,12 @@ from Proyecto1.views import despedidaHtml
 from Proyecto1.views import saludo_variable 
 from Proyecto1.views import prueba 
 from Proyecto1.views import saludo_variable2 
-from Proyecto1.views import simplificado
+from Proyecto1.views import simplificado 
+from Proyecto1.views import prueba2 
+from Proyecto1.views import cursoC 
+from Proyecto1.views import cursoCss
+
+
 urlpatterns = [
     path('admin/', admin.site.urls), 
     path('despedida/',despedida), 
@@ -35,6 +40,11 @@ urlpatterns = [
     path('saludo_variable/',saludo_variable), 
     path('prueba/',prueba), 
     path('saludo_variable2/',saludo_variable2), 
-    path('simplificado/',simplificado)
+    path('simplificado/',simplificado), 
+    path('prueba2/',prueba2), 
+    path('cursoC/',cursoC), 
+    path('cursoCss/',cursoCss)
+    
+    
     
 ]

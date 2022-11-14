@@ -1,0 +1,28 @@
+<html> 
+<head> 
+
+<title>   
+    {% block title%}{% endblock %}   <!–el bloque que está dentro de titulo, esto para hacer la herencia de plantillas –>
+</title>
+
+</head> 
+{%include "barra.html"%}
+<body> 
+<h1> 
+    pildoras informaticas    <!–titulo comun, que va a estar en todas–>
+</h1>
+<h3> 
+    Curso de programacion django
+</h3> 
+
+{%block content%} <!–lo que esté dentro de esas llaves es lo que va a ser cambiante–>
+
+
+{%endblock%} 
+
+<p> 
+    cursos gratuitos, gracias por su visita
+</p>
+</body>
+
+</html>

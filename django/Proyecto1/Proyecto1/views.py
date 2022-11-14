@@ -132,3 +132,18 @@ def simplificado(request):
     ahora=datetime.datetime.now()  
     #se le pasa al metodo render: request, nombre de la plantilla, diccionario o contexto 
     return render(request,"plantilla1.html",{"nombre_persona":nombre,"apellido_persona":apellido,"ahora":ahora,"cargo":cargo_objeto,"temas":temas})
+
+def prueba2(request): 
+    persona=persona1 
+    persona=persona1 
+    comidas=['hamburguesa','sancocho','platano'] 
+    vacia=[]  
+    return render(request, 'plantilla3.html',{"persona":persona,"comidas":comidas} )   
+
+def cursoC(request): 
+    ahora=datetime.datetime.now() 
+    return render(request,"cursoC.html",{"dameFecha":ahora}) 
+
+def cursoCss(request): 
+    ahora=datetime.datetime.now() 
+    return render(request,"cursoCss.html",{"dameFecha":ahora}) 
