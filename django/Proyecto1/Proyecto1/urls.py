@@ -27,7 +27,9 @@ from Proyecto1.views import saludo_variable2
 from Proyecto1.views import simplificado 
 from Proyecto1.views import prueba2 
 from Proyecto1.views import cursoC 
-from Proyecto1.views import cursoCss
+from Proyecto1.views import cursoCss  
+from Proyecto1.views import python
+
 
 
 urlpatterns = [
@@ -43,7 +45,8 @@ urlpatterns = [
     path('simplificado/',simplificado), 
     path('prueba2/',prueba2), 
     path('cursoC/',cursoC), 
-    path('cursoCss/',cursoCss)
+    path('cursoCss/',cursoCss),
+    path('python/',python),
     
     
     

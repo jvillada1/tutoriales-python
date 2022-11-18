@@ -11,7 +11,9 @@ class Clientes(models.Model):
 class Articulo(models.Model): 
     nombre=models.CharField(max_length=30) 
     seccion=models.CharField(max_length=20) 
-    precio=models.IntegerField() 
+    precio=models.IntegerField()  
+    def __str__(self): 
+        return f"nombre: {self.nombre}, seccion: {self.seccion}, precio: {self.precio}" #se agrega para que no devuelva los objetos sino los strings
 
 class Pedidos(models.Model): 
     numero=models.IntegerField() 

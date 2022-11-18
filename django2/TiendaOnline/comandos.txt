@@ -1,0 +1,29 @@
+insertar registros: 
+
+python manage.py shell 
+
+from gestionPedidos.models import Clientes 
+
+ cli=Clientes(nombre='Juan',direccion='mi casa', telefono='12345678') 
+
+cli.save() 
+
+Para hacer consltas con filtros: 
+Articulo.objects.filter(seccion='decoracion') -----> where devuelve objetos articulo con un filtro 
+
+ Articulo.objects.filter(nombre='mesa',seccion='decoracion') ------> con varios filtros
+
+Como python usa lo signos =,<, > para otras cosas las consultas se deben hacer asi 
+
+Articulo.objects.filter(seccion='decoracion',precio__gte=70)  ----------> mayor que 70 
+
+Articulo.objects.filter(seccion='decoracion',precio__lte=100) ----------> menor que 100 
+
+Articulo.objects.filter(seccion='decoracion',precio__range=(10,150)) -----> para hacer un rango 
+
+Articulo.objects.filter(precio__gte=35).order_by('precio') -------------> para hacer un order by ascendente 
+
+Articulo.objects.filter(precio__gte=35).order_by('-precio') ------------> descendente
+
+exit() para salir del shell 
+

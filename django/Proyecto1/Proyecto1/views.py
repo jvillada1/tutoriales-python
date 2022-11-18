@@ -146,4 +146,9 @@ def cursoC(request):
 
 def cursoCss(request): 
     ahora=datetime.datetime.now() 
-    return render(request,"cursoCss.html",{"dameFecha":ahora}) 
+    return render(request,"cursoCss.html",{"dameFecha":ahora})  
+def python (request):  
+    nombre="daniel"
+    ahora=datetime.datetime.now()   
+    return render (request,'cursoPython.html',{'dameFecha':ahora,"nombre":nombre})
+    
