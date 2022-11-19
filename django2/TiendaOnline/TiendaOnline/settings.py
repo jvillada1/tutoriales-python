@@ -55,7 +55,7 @@ ROOT_URLCONF = 'TiendaOnline.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:/Users/encal/OneDrive/Escritorio/Tutoriales python/curso/django2/TiendaOnline/TiendaOnline/plantillas'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

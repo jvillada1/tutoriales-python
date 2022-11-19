@@ -5,7 +5,7 @@ from django.db import models
 class Clientes(models.Model): 
     nombre=models.CharField(max_length=30) 
     direccion=models.CharField(max_length=50) 
-    email=models.EmailField() 
+    email=models.EmailField(blank=True,null=True) #se ponen esos dos parametros para permitir que sean opcionales
     telefono=models.CharField(max_length=7) 
 
 class Articulo(models.Model): 
@@ -18,4 +18,7 @@ class Articulo(models.Model):
 class Pedidos(models.Model): 
     numero=models.IntegerField() 
     fecha=models.DateField() 
-    entregado=models.BooleanField()
+    entregado=models.BooleanField() 
+    
+
+#siempre que se haga un cambio a un modelo, se debe migrar
