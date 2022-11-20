@@ -1,0 +1,4 @@
+python manage.py createsuperuser  ingresar usuario , correo, contraseña 
+
+manipular tablas desde el panel admin 
+

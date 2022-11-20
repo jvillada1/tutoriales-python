@@ -4,9 +4,11 @@ from django.db import models
 #cada clase es una tabla de la base de datos
 class Clientes(models.Model): 
     nombre=models.CharField(max_length=30) 
-    direccion=models.CharField(max_length=50) 
+    direccion=models.CharField(max_length=50, verbose_name='la direccion') #verbose_name es para que en el panel de admin aparezca como se especifica 
     email=models.EmailField(blank=True,null=True) #se ponen esos dos parametros para permitir que sean opcionales
     telefono=models.CharField(max_length=7) 
+    def __str__(self): 
+        return f'nombre: {self.nombre}'
 
 class Articulo(models.Model): 
     nombre=models.CharField(max_length=30) 
