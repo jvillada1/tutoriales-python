@@ -18,7 +18,8 @@ class ArticulosAdmin(admin.ModelAdmin):
 class PedidosAdmin(admin.ModelAdmin): 
     list_display=("numero","fecha","entregado")
     list_filter=("fecha",) 
-    date_hierarchy="fecha" #añade una barra horizontal con todas las fechas posibles
+    date_hierarchy="fecha"  #añade una barra horizontal con todas las fechas posibles 
+    search_fields=("numero",)
 #dese aqui se pueden agregar y eliminar clientes 
 
 admin.site.register(Clientes,ClientesAdmin) # se hace para ingresar el modelo clientes al sitio admin, y tambien se usa clientesAdmin

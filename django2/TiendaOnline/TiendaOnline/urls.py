@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from gestionPedidos.views import primera
+from gestionPedidos.views import primera,busqueda_productos,buscar,compras,comprar
 urlpatterns = [
     path('admin/', admin.site.urls), 
-    path('primera/<int:num1>/',primera),
+    path('primera/<int:num1>/',primera), 
+    path('busqueda_productos/',busqueda_productos),
+    path('buscar/',buscar), 
+    path('compras/',compras), 
+    path('comprar/',comprar)
+    
 ]
