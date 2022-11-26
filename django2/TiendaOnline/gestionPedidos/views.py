@@ -6,7 +6,7 @@ from django.template import Template, Context # se importa para podr hacer el co
 #crear primera vista  
 from django.template import loader #se importa loader para poder indicarle a django donde van a estar todas las plantillas 
 from django.shortcuts import render #es para hacer simplificaciones de codigo
-
+from gestionPedidos.models import Articulo, Clientes,Pedidos
 # Create your views here.
 
 def primera(request,num1): 
@@ -21,14 +21,41 @@ def busqueda_productos(request):
 
 #vista buscar para ver si la información llega o no
 def buscar(request): 
-    mensaje="Articulo buscado: %r " %request.GET["prd"] #asi se le pide la informacion prd, que es el nombre del input tn el html }
+    if request.GET["prd"]: #si pone el if y el else para que el usuario no mande info vacia
+        
+        #mensaje="Articulo buscado: %r " %request.GET["prd"] #asi se le pide la informacion prd, que es el nombre del input tn el html }  
+        
+        #hacerlo para que busque en la base de datos
+        producto=request.GET["prd"] #almacenar el request.get en una variable 
+        articulos=Articulo.objects.filter(nombre__icontains=producto) #se usa el metodo icontain para hacer la busqueda por filtro en la base de datos, es como la funcion like en sql 
+        return render(request,"resultados_busqueda.html",{"articulos":articulos,"query":producto})
+    else: 
+        mensaje="No has introducido nada"
     return HttpResponse(mensaje) 
 
 def compras(request): 
-    return render(request,"buesuqeda_productos.html") 
+    return render(request,"buesuqeda_productos.html")  
 
-def comprar(request): 
-    mensaje="%r"%request.GET["datos"] 
-    fecha=datetime.datetime.now()  
-    return render(request,"compras.html",{"fecha":fecha,"mensaje":mensaje})
-    
+def cliente(request): 
+    return render(request,"busqueda_clientes.html")
+
+def clientes(request): 
+    #mensaje="%r"%request.GET["datos"]  
+    if request.GET["datos"]:
+        clt=request.GET["datos"] 
+        clientes=Clientes.objects.filter(nombre__icontains=clt)
+        fecha=datetime.datetime.now()  
+        return render(request,"resultados_clientes.html",{"clientes":clientes,"query":clt,"fecha":fecha,})  
+    else: 
+        mensaje="No has introducido nada" 
+    return HttpResponse(mensaje)
+
+def pedidos(request): 
+    if request.GET["datos2"]: 
+        ped=request.GET["datos2"] 
+        pedidos=Pedidos.objects.filter(numero__icontains=ped) 
+        fecha=datetime.datetime.now()  
+        return render(request,"resultados_pedidos.html",{"pedidos":pedidos,"query":ped,"fecha":fecha}) 
+    else: 
+        mensaje="no se ha introducido nada" 
+    return HttpResponse(mensaje)

@@ -1,0 +1,27 @@
+<html> 
+<body> 
+
+<p> 
+Estas buscando: <strong>{{query}}</strong>
+</p>
+{%if articulos%} <!--se usa este condicional para ver que si le esté llegando la info  -->
+<p> 
+    Articulos encontrados: {{articulos|length}} articulos <!-- muestra la longitud de esos articulos encontrados  -->
+</p> 
+<ul>  
+    {% for articulo in articulos%} <!--se  recorre la lista para mostrar los articulos  -->
+    <li>  
+        {{articulo.nombre}} &nbsp; {{articulo.seccion}} &nbsp; {{articulo.precio}}
+    </li> 
+    {%endfor%}
+</ul> 
+{%else%} 
+<p> 
+No está el articulo encontrado
+</p> 
+{%endif%}
+</body>
+
+
+
+</html>

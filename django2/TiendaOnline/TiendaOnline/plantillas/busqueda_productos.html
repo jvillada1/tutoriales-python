@@ -1,10 +1,12 @@
 <html> 
-
+    {% include "barra2.html"%} 
 <head> 
 
     <title>Busqueda de productos</title>
 </head>  
-
+<head> 
+    Busqueda articulos:
+</head>
 <body> 
 <form action="/buscar/" method="GET"> <!--para realizar el formulario primero se pone action y la direccion a donde va, con el metodo get o post  --> 
 <!-- el metodo get envia la info utilizando la url como medio de transporte -->  
@@ -15,13 +17,25 @@
 
 
 
-</form>  
-<form action ="/comprar/" method="GET"> 
+</form>   
+<head> 
+    Busqueda clientes:
+</head>
+<form action ="/clientes/" method="GET"> 
 <input type="text" name="datos"> 
-<input type="submit" value="compras">
+<input type="submit" value="buscar">
 
 </form> 
 
+</form>   
+<head> 
+    Busqueda pedidos:
+</head>
+<form action ="/pedidos/" method="GET"> 
+<input type="text" name="datos2"> 
+<input type="submit" value="buscar">
+
+</form> 
 
 
 

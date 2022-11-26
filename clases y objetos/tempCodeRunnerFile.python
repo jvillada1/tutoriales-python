@@ -1,0 +1,22 @@
+def primo(n): 
+    iflag=1 
+    i=2 
+    while (iflag==1) and (i<n): 
+        if(n%i)==0:
+            iflag=0 
+        i=i+1  
+        return iflag
+
+def descomponer(n):
+    primo(n)  
+    primos=[]
+    for i in range(2,n+1): 
+        while n %i==0: 
+            primos.append(i) 
+            n=n/i 
+    return primos
+
+print(descomponer(60))  
+
+
+

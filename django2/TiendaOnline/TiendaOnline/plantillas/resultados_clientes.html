@@ -1,0 +1,26 @@
+<html> 
+<body> 
+<p> 
+Estas buscando: <strong>{{query}}</strong>
+</p>
+{%if clientes%} <!--se usa este condicional para ver que si le esté llegando la info  -->
+<p> 
+    Clientes encontrados: {{clientes|length}} clientes, fecha de la Busqueda: {{fecha}} <!-- muestra la longitud de esos articulos encontrados  -->
+</p> 
+<ul>  
+    {% for cliente  in clientes%} <!--se  recorre la lista para mostrar los articulos  -->
+    <li>  
+        {{cliente.nombre}} &nbsp; {{cliente.direccion}} &nbsp; {{cliente.email}}
+    </li> 
+    {%endfor%}
+</ul> 
+{%else%} 
+<p> 
+No está el cliente buscado
+</p> 
+{%endif%}
+</body>
+
+
+
+</html>
