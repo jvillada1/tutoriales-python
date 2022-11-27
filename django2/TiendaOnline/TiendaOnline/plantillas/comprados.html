@@ -1,0 +1,30 @@
+<html> 
+    {% include "barra2.html"%} 
+<head> 
+
+    <title>Compra de productos</title>
+</head>  
+<head> 
+</head>
+<body>  
+    <h1> 
+    Compras
+    </h1>
+<form action="/comprados/" method="POST">{%csrf_token%} <!--esta vez es post pq se pretende que a nosotros se nos envie un mail como propietarios  --> 
+
+
+<p>producto: <input type ="text" name = "producto"></p> 
+<p>email: <input type ="text" name = "email"></p>   
+<p>Cantidad: <textarea name ="mensaje" rows="15" cls="45"></textarea></p>
+<input type="submit" value="enviar"> 
+
+
+
+
+</form>   
+
+
+
+
+</body>
+</html>
