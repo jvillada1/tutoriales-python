@@ -8,7 +8,8 @@ from django.template import loader #se importa loader para poder indicarle a dja
 from django.shortcuts import render #es para hacer simplificaciones de codigo
 from gestionPedidos.models import Articulo, Clientes,Pedidos 
 from django.core.mail import send_mail 
-from django.conf import settings
+from django.conf import settings 
+from gestionPedidos.forms import FormularioContacto,FormularioCompras
 # Create your views here.
 
 def primera(request,num1): 
@@ -72,19 +73,30 @@ def pedidos(request):
     return HttpResponse(mensaje) 
 
 #vamos a crear un formulario de contacto 
-def contacto(request):  
+"""def contacto(request):  
     if request.method=="POST": #comprobacion de que al pulsar el boton enviar se detecte que se está usando el post
         subject=request.POST["asunto"] #capturar la informacion del asunto 
         message=request.POST["mensaje"]+ " " + request.POST["email"]#capturar la inforacion del mensaje y la direccion del email que o envió
         email_from=settings.EMAIL_HOST_USER #la direccion que se le ha indicado en settings 
         recipient_list=["encallejone47@gmail.com"] #la direccion a la que queremos que lleguen los mensajes 
-        send_mail(subject,message,email_from,recipient_list) #metodo send_mail con todos sus parametros
-        
-        
-        
+        send_mail(subject,message,email_from,recipient_list) #metodo send_mail con todos sus parametros 
         
         return render(request,"gracias.html")
-    return render(request,"contacto.html") 
+    return render(request,"contacto.html")  
+"""
+#ahora hacemos contacto pero con api forms 
+def contacto(request): 
+        if request.method=="POST": 
+            miformulario=FormularioContacto(request.POST) # se crea el objeto mi formulario pero se agrega el request.POST 
+            if (miformulario.is_valid())==True: 
+                infForm=miformulario.cleaned_data #variable que guarda la info enviada en el formulario 
+                send_mail(infForm['asunto'],infForm['mensaje'], #se rescata el dato asunto y mensaje de infForm
+                        infForm.get('email',''),['encallejone47@gmail.com'],)  #y asi se envia a información 
+                return render(request,"gracias.html")
+        else: 
+            miformulario=FormularioContacto() #si no se entra al POST, lo que hace es que construye el formulario vacio
+        return render(request,"formulario_contacto.html",{"form":miformulario}) #se le deben agregar cosas manualmente en el html pero se debe construir un doc html con la info que hay dentro
+                                                        #se debe indicar que formulario va a usar 
 
 def comprados(request): 
     if request.method=="POST": 
@@ -95,4 +107,17 @@ def comprados(request):
         recipient_list=["encallejone47@gmail.com"]
         send_mail("compra 1",f"se ha realizado a compra 1, el producto es: {producto}, y el mensaje compra es {mensaje_compra} desde la dirección {mail_compra}",email_from,recipient_list) 
         return render(request,"gracias.html") 
-    return render(request,"comprados.html")
+    return render(request,"comprados.html") 
+
+def comprados_api(request): 
+    if request.method=="POST": 
+        miformulario=FormularioCompras(request.POST) 
+        if (miformulario.is_valid()): 
+            infForm=miformulario.cleaned_data 
+            send_mail("compra 1",f"se ha realizado a compra 1, el producto es:" +infForm['producto']+" y el mensaje compra es "+  infForm['mensaje_compra'] + " desde la dirección"  +infForm['mail_compra'],infForm.get('mail_compra',''),['encallejone47@gmail.com'],) 
+            return render(request,"gracias.html") 
+    else: 
+        miformulario=FormularioCompras() 
+        return render(request,"formulario_comprados.html",{"form":miformulario})
+def ir(request): 
+    return render(request,"prueba.html")

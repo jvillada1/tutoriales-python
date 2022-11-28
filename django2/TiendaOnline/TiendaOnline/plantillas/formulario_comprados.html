@@ -1,0 +1,18 @@
+<html> 
+    <body> 
+        <h1> 
+            Comprados
+        </h1> 
+        {%if form.errors%} 
+        <p style="color: red;">Por favor revisa este campo </p>  <!--Si hay un error en el formulario, que lo marque en rojo -->  
+        {%endif%} 
+        <form action="" method="POST">{%csrf_token%} <!-- como la api no crea el fomr que abre, se debe crear manualmente y con el token -->  
+        <table> 
+
+            {{form.as_table}} <!--tambien se crea el modo en que lo queremos, en este caso es con tablas--> 
+        </table>
+        <input type="submit" value="enviar">
+        </form>
+
+    </body>
+</html>
