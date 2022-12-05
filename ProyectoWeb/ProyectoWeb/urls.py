@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),  
     #asi se enlazan las urls del pryecto con las de la app
     path('',include('ProyectoWebApp.urls')), 
-    #ya a la url se le debe agregar ProyectoWebApp/
+    #ya a la url se le debe agregar ProyectoWebApp/ 
+    path('servicios/',include('servicios.urls')) #se agrega la url de la app servicios
 ]
