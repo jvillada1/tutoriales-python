@@ -12,8 +12,6 @@ def Tienda(request):
     return render(request,"Tienda.html")
 
 
-def Blog(request): 
-    return render(request,"Blog.html")
 
     
 
