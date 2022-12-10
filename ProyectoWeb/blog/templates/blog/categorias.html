@@ -27,7 +27,7 @@
         Categorias:
         {%for post in posts%}  
         {%for categoria in post.categorias.all%} 
-        <a href="{%url 'categoria' categoria.id %}" class= "linksCategorias" > {{categoria.nombre}} </a>&nbsp;&nbsp;&nbsp; <!--se hace para agregarle el link a la categoria-->
+        {{categoria.nombre}} &nbsp;&nbsp;&nbsp;
         {%endfor%}
         {%endfor%}
     </div>

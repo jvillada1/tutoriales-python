@@ -46,7 +46,7 @@
           <li class="nav-item {%if request.path == '/Contacto' %} active {%endif%} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Contacto'%}">Contacto</a>
           </li>
-          <li class="nav-item{%if request.path == '/Blog' %} active{%endif%} px-lg-4"> <!-- el if se pone para que la pagina se subraye cunado la seleccione-->
+          <li class="nav-item{%if request.path|slice:':6' == '/blog/' %} active{%endif%} px-lg-4"> <!-- el if se pone para que la pagina se subraye cunado la seleccione-->
             <a class="nav-link text-uppercase text-expanded" href="{% url 'blog'%}">Blog</a>
           </li>
          
