@@ -23,5 +23,6 @@ urlpatterns = [
     path('',include('ProyectoWebApp.urls')), 
     #ya a la url se le debe agregar ProyectoWebApp/ 
     path('servicios/',include('servicios.urls')), #se agrega la url de la app servicios 
-    path('blog/',include('blog.urls'))
+    path('blog/',include('blog.urls')),
+    path('contacto/',include('contacto.urls'))
 ]

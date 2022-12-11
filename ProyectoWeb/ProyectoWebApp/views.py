@@ -15,6 +15,3 @@ def Tienda(request):
 
     
 
-def Contacto(request): 
-    return render(request,"Contacto.html")
-

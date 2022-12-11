@@ -37,14 +37,14 @@
           <li class="nav-item {%if request.path == '/' %}active{%endif%} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Home'%}">Inicio</a> <!-- para que la pagina reconozca bien las urls, se deben poner asi -->
           </li>
-          <li class="nav-item {%if request.path == '/Servicios' %} active{%endif%} px-lg-4">
+          <li class="nav-item {%if request.path == '/servicios/' %} active{%endif%} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'servicios'%}">Servicios</a>
           </li>
           <li class="nav-item{%if request.path == '/Tienda' %} active{%endif%} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Tienda'%}">Tienda</a>
           </li>
           <li class="nav-item {%if request.path == '/Contacto' %} active {%endif%} px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'Contacto'%}">Contacto</a>
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'contacto'%}">Contacto</a>
           </li>
           <li class="nav-item{%if request.path == '/Blog' %} active{%endif%} px-lg-4"> <!-- el if se pone para que la pagina se subraye cunado la seleccione-->
             <a class="nav-link text-uppercase text-expanded" href="{% url 'blog'%}">Blog</a>
