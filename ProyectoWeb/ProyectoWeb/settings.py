@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'ProyectoWebApp', 
     'servicios', 
     'blog', 
-    'contacto',
+    'contacto', 
+    'tiendas',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,12 @@ MEDIA_ROOT=BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#vamos a poner la info correpondiente con la conexion al correo
+EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend" #se especifica el email backend para poder enviar los correos 
+EMAIL_HOST="smtp.gmail.com" #tambien se debe se espicificar un host 
+EMAIL_USE_TLS=True#SE DEBE DE EESPCIFICR EL PATRON DE SEGURIDAD, en este caso se tls 
+EMAIL_PORT=587 #Y tambien el puerto 
+EMAIL_HOST_USER="encallejone47@gmail.com" # tambien se pone el correo personal 
+EMAIL_HOST_PASSWORD="hwfcafkzmzhrczhe"
+#asi se configura el settings para enviar correos desde django

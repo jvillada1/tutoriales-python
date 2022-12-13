@@ -8,8 +8,6 @@ def Home(request):
 
 
 
-def Tienda(request):  
-    return render(request,"Tienda.html")
 
 
 
