@@ -8,7 +8,7 @@ class catProdAdmin(admin.ModelAdmin):
     
 
 class productoAdmin(admin.ModelAdmin): 
-    list_display=('nombre_producto','precio','imagen','disponibilidad') 
+    list_display=('nombre_producto','precio','imagen','disponibilidad','created','updated') 
 
 admin.site.register(CategoriaProductos,catProdAdmin)  
 admin.site.register(producto,productoAdmin) 

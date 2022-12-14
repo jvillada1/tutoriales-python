@@ -1,0 +1,36 @@
+{%extends "tienda/base.html"%} 
+{%load static %} 
+{%block content%} 
+{%for producto in productos%}  
+<section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{producto.imagen.url}}" alt="" style="width:50%;">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-lower">{{producto.nombre_producto}}</span>
+            <span class="section-heading-upper">{{producto.precio}}</span> 
+          </h2>
+         
+          <div style="text-align: left; font-size:0.8em"> 
+            Disponibilidad: {{producto.disponibilidad}}
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+{%endfor%}  
+<section>  
+    <div style="width:75%;margin: auto; text-align:center; color:white;">
+        Categorias:
+        {%for producto in productos%}  
+        {%for categoria in producto.categorias.all%} 
+        {{categoria.nombre}} &nbsp;&nbsp;&nbsp;
+        {%endfor%}
+        {%endfor%}
+    </div>
+    </section>
+{%endblock%}
+    
