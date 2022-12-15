@@ -2,7 +2,11 @@
 {%load static %} 
 {%block content%}  
 
-<div class="container">
+<div class="container"> 
+
+<div style="float:right;"> 
+<p style="color:white;">Texto de prueba</p> <!--en ese texto de prueba irá el carro de compras-->
+</div>
 <div class ="row">
 {%for producto in productos%}  
 <!--vamos a darle un formato nuevo a la paagina tienda-->
@@ -12,6 +16,9 @@
     <div class="card-body" style="text-align:center;"> <!--aqui se va a editar el cuerpo de la tarjeta para que aparezcan los datos que queremos-->
         <h7 class="card-title">{{producto.nombre_producto}}</h7>  
         <p class="card-text">{{producto.precio}} &nbsp;$</p>
+    </div> 
+    <div class="card-footer text-center" > <!-- aqui vamos a poner el boton para que nos agregue al carro de la compra-->
+        <a href="#" class="btn btn-success">Agregar al carrito</a> 
     </div>
 </div> <!--card que se cierra--> 
 </div><!--col que se cierra-->
