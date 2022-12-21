@@ -25,5 +25,8 @@ urlpatterns = [
     path('servicios/',include('servicios.urls')), #se agrega la url de la app servicios 
     path('blog/',include('blog.urls')),
     path('contacto/',include('contacto.urls')), 
-    path('tiendas/',include('tiendas.urls')),
+    path('tiendas/',include('tiendas.urls')), 
+    path('carro/',include('carro.urls')), 
+    path('autenticacion/',include ('autenticacion.urls')),
+    
 ]

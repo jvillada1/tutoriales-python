@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'blog', 
     'contacto', 
     'tiendas',  
-    'carro',
+    'carro', 
+    'autenticacion',
 ]
 
 MIDDLEWARE = [
@@ -63,11 +64,14 @@ TEMPLATES = [
         'DIRS': ['C:/Users/encal/OneDrive/Escritorio/Tutoriales python/curso/ProyectoWeb/ProyectoWeb/plantillas',],
         'APP_DIRS': True,
         'OPTIONS': {
-            'context_processors': [
+            'context_processors': [  
+                'carro.procesador.importe_total_carro',
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',
+                'django.template.context_processors.request',                 
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+                'django.contrib.messages.context_processors.messages',  
+                
+                
             ],
         },
     },

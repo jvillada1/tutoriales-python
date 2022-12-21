@@ -7,21 +7,22 @@ class Carro:
         if not carro: 
             #se va a trabajar con diccionarios para poder ver los productos 
             carro=self.session["carro"]={} #si no hay carro, se crea con el diccionario vacio
-        else: 
-            self.carro=carro #si si hay carro, se dice que va a ser igual al que ya habia 
+        #else: 
+        self.carro=carro #si si hay carro, se dice que va a ser igual al que ya habia 
         
     def agregar(self,producto):  #vamos a hacer la funcion agregar 
         #primero se debe de comprobar que el producto a ingresar, no esté ya agregado 
-        if(str(producto.id)not in self.carrro.keys()): #si no está el id, que lo cree y llene todo el diccionario con los datos del producto ingresado
+        if(str(producto.id)not in self.carro.keys()): #si no está el id, que lo cree y llene todo el diccionario con los datos del producto ingresado
             self.carro[producto.id]={"producto_id":producto.id, 
-                                    "nombre":producto.nombre, 
+                                    "nombre_producto":producto.nombre_producto, 
                                     "precio":str(producto.precio), 
                                     "cantidad":1, 
                                     "imagen":producto.imagen.url,} 
         else: #en el caso de que si esté en el carro, se hace lo siguiente
             for key,value in self.carro.items():# se debe de recorrer y comprobar si la clave es igual a la que vamos a ingresar para que se sumen 
                 if key==str(producto.id): 
-                    value["cantidad"]=value["cantidad"]+1 #si lo encuentra, que le sume 1 al valor ya existente 
+                    value["cantidad"]=value["cantidad"]+1 #si lo encuentra, que le sume 1 al valor ya existente  
+                    value["precio"]=float(value["precio"])+producto.precio #que el precio tambien aumente cuando aumentan la cantidad
                     break #el break es para que si ya encuentra uno con el mismo id, que no recorra el resto de elementos 
         self.guardar_carro() #se va a llamar a una funcion que guardara el carro en la sesion 
                 
@@ -39,7 +40,8 @@ class Carro:
     def restar_producto(self,producto): #la funcion restar e va anecargar de restarle una unidad a los productos que se encuentren en el carro
         for key,value in self.carro.items():# se debe de recorrer y comprobar si la clave es igual a la que vamos a ingresar para que se sumen 
                 if key==str(producto.id): 
-                    value["cantidad"]=value["cantidad"]-1 #hace lo mismo de agregar pero en vez de sumar, resta 1 
+                    value["cantidad"]=value["cantidad"]-1 #hace lo mismo de agregar pero en vez de sumar, resta 1  
+                    value["precio"]=float(value["precio"])-producto.precio #que el precio tambien disminuya cuando se resta la cantidad
                     if value["cantidad"]<1: #esta se comprobacion trata de que si las unidades que quedan son iguales a 1, que llame a la funcion eliminar
                         self.eliminar(producto)
                     break  
