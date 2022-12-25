@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'contacto', 
     'tiendas',  
     'carro', 
-    'autenticacion',
+    'autenticacion', 
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -148,4 +149,6 @@ EMAIL_USE_TLS=True#SE DEBE DE EESPCIFICR EL PATRON DE SEGURIDAD, en este caso se
 EMAIL_PORT=587 #Y tambien el puerto 
 EMAIL_HOST_USER="encallejone47@gmail.com" # tambien se pone el correo personal 
 EMAIL_HOST_PASSWORD="hwfcafkzmzhrczhe"
-#asi se configura el settings para enviar correos desde django
+#asi se configura el settings para enviar correos desde django 
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
