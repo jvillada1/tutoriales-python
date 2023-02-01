@@ -8,4 +8,5 @@ urlpatterns = [
     
 ]
 
-urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) #se agrega la url de las imagenes a las demas
+if settings.DEBUG is True:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

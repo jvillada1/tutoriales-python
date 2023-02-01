@@ -22,7 +22,16 @@
     <h1 class="site-heading text-center text-white d-none d-lg-block">
       
         <span class="site-heading-lower">Gestión de Pedidos</span>
-      </h1>
+      </h1>  
+      <div style="text-align:right;margin-right:100px;color:white;">
+
+        {%if user.is_authenticated%} <!--asi se mira si el usuario está autenticado-->
+        Hola {{user.username}} &nbsp;&nbsp;<a href="{% url 'cerrar_sesion' %}" style="color:white;">Cerrar sesión</a> <!--obtiene l enombre del usuario autenticado-->
+        {%else%} 
+        <a href="{%url 'login'%}">Login </a> &nbsp; &nbsp; <a href="{% url 'autenticacion'%}">Registrate</a> <!--en caso de que no esté logeado, que lleve a la pagina de autenticacion-->
+        {%endif%}
+      </div>
+      </body>
 
 
  <!-- Navbar -->

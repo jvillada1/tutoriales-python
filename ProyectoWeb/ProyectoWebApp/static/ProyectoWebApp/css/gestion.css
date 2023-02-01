@@ -80,7 +80,7 @@ p {
 }
 
 #mainNav {
-  background-color: rgba(24, 64, 8);
+  background-color: rgb(54, 16, 143);
   font-family: 'Raleway';
 }
 
@@ -134,7 +134,7 @@ p {
     left: 600;
     width: 60%;
     margin-top: 3rem;
-    background-color: rgba(24, 64, 8);
+    background-color: rgb(32, 9, 87);
     color: cornsilk;
     position: absolute;
   }
@@ -162,7 +162,7 @@ p {
   position: relative;
   padding: 3rem;
   margin: 0.5rem;
-  background-color: rgba(24, 64, 8);
+  background-color: rgb(54, 16, 143);
   color: cornsilk;
 }
 
@@ -229,7 +229,7 @@ p {
 }
 
 .footer {
-   background-color: rgba(24, 64, 8, 0.8);
+   background-color: rgb(54, 16, 143);
 }
 
 
@@ -287,7 +287,7 @@ text-decoration: underline;
 } 
 
 .contenedorFormulario{ 
-  background-color: rgba(24, 64, 8); 
+  background-color: rgb(54, 16, 143); 
   width:50%; 
   margin:10px auto; 
   border-radius: 5px; 
