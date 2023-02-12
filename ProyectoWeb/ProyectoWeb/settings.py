@@ -147,8 +147,8 @@ EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend" #se especifica el em
 EMAIL_HOST="smtp.gmail.com" #tambien se debe se espicificar un host 
 EMAIL_USE_TLS=True#SE DEBE DE EESPCIFICR EL PATRON DE SEGURIDAD, en este caso se tls 
 EMAIL_PORT=587 #Y tambien el puerto 
-EMAIL_HOST_USER="encallejone47@gmail.com" # tambien se pone el correo personal 
-EMAIL_HOST_PASSWORD="hwfcafkzmzhrczhe"
+EMAIL_HOST_USER="" # tambien se pone el correo personal 
+EMAIL_HOST_PASSWORD=""
 #asi se configura el settings para enviar correos desde django 
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
